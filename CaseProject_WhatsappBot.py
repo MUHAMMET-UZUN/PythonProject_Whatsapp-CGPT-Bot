@@ -7,7 +7,6 @@ from time import sleep
 
 
 wp_bot = WhatsApp(speed=.1,click_speed=.4)
-sleep(2)
 
 print("""
 -TR-
@@ -34,7 +33,9 @@ print("""
 """)
 
 input("\n\n\tWhatsApp ve ChatGPT kurulumundan sonra Enter\'a basınız ve programı aşağı alıp tarayıcıya geçiniz."
-      "\n\t")
+      "\n\tAfter setting WhatsApp and ChatGPT, press Enter and minimize the program window and switch to the browser.")
+
+sleep(3)
 
 while True:
     wp_bot.nav_green_dot()
@@ -44,8 +45,9 @@ while True:
     #sekme değiştirmeliyiz/need to change tab to cgpt
     wp_bot.nav_cgpt_tab()
     wp_bot.solve_message()
+    #sekme değiştirmeliyiz / need to change tab to whatsapp
     wp_bot.nav_input_box()
-    wp_bot.send_message()
+    wp_bot.send_result()
 
     sleep(10)
 

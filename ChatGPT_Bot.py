@@ -24,13 +24,19 @@ class ChatGPT:
         except Exception as e:
             print('Exception (nav_green_dot): ',e)
 
+    def create_new_chat(self):
+        #position = pt.locateOnScreen('cgpt_stop_generating_button.png', confidence=.9)
+        #pt.moveTo(position[0:2], duration=self.speed)
+        pt.moveRel(-100, 120, duration=self.speed)
+        pt.doubleClick(interval=self.click_speed)
+
     def solve_message(self,input_message):
         try:
             print("You say: ", input_message)
             pt.typewrite(input_message,interval=.1)
             pt.typewrite("\n")
             sleep(1)
-            #Son mesajın ayarlanması
+            #Son mesajın ayarlanması / Assign last message
             self.last_message = self.message
         except Exception as e:
             print("Exception (solve_message): ",e)
@@ -38,13 +44,16 @@ class ChatGPT:
     def check_message_is_answered(self):
         while True:
             try:
-                position = pt.locateOnScreen('cgpt_stop_generating_button.png',confidence=1)
-                print("In progress...")
-                continue
+                position = pt.locateOnScreen('cgpt_send_button.png',confidence=.9)
+                print("position::",position)
+                if position:
+                    break
 
             except Exception as e:
                 print('Exception (check_message_is_answered): ', e)
-                break
+                print("In progress...")
+                continue
+        return True
 
     def nav_whatsapp_tab(self):
         try:

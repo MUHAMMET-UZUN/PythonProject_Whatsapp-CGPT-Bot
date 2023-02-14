@@ -78,7 +78,7 @@ class WhatsApp:
         except Exception as e:
             print("Exception (nav_cgpt_tab): ",e)
 
-    def send_message(self):
+    def send_result(self):
         try:
             if self.message != self.last_message:
 

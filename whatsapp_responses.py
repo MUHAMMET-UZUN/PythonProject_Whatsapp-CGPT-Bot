@@ -7,21 +7,11 @@ sleep(2)
 def response(input_message):
     message = input_message.lower()
 
+    cgptBot.create_new_chat()
     cgptBot.nav_message_box()
     cgptBot.solve_message(message)
-    cgptBot.check_message_is_answered()
-
-    """
-    if message == 'merhaba':
-        return 'Merhaba.'
-    elif message == 'say my name':
-        return 'Heisenberg.'
-    elif message == 'mal':
-        return 'Ayib.'
-    elif message == 'naber':
-        return 'Eh iste 0101 yasiyoruz.'
-    elif message == 'selam':
-        return 'selam naber?'
-    elif message == 'iyi' or message == 'ıyi' or message == 'ıyı' or message == 'İyi':
-        return 'Guzel.'
-"""
+    while True:
+        if cgptBot.check_message_is_answered():
+            break
+    #cgptBot.save_result()
+    cgptBot.nav_whatsapp_tab()
