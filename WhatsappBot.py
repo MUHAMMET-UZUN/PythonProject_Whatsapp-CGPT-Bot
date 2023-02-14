@@ -3,6 +3,7 @@ import pyperclip as pc
 from pynput.mouse import Controller, Button
 from time import sleep
 from whatsapp_responses import response
+from whatsapp_responses import nav_whatsapp_tab
 
 mouse = Controller()
 
@@ -65,9 +66,10 @@ class WhatsApp:
                 #Son mesajın ayarlanması
                 self.last_message = self.message
             else:
+                nav_whatsapp_tab(self.speed,self.click_speed)
                 print("No new messages...")
         except Exception as e:
-            print("Exception (send_message): ",e)
+            print("Exception (solve_message): ",e)
 
     def nav_cgpt_tab(self):
         try:
@@ -89,7 +91,7 @@ class WhatsApp:
 
                 print("You say: ", self.message)
 
-                pt.typewrite(self.message,interval=.1)
+                pt.typewrite(self.message,interval=0)
                 pt.typewrite("\n")
 
                 #Son mesajın ayarlanması / Assign last message
@@ -98,6 +100,9 @@ class WhatsApp:
                 print("No new messages...")
         except Exception as e:
             print("Exception (send_message): ",e)
+
+    def take_result(self):
+        self.message = pc.paste()
 
     def nav_x(self):
         try:

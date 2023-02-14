@@ -19,6 +19,9 @@ print("""
         KARANLIK TEMAYA geçirmek ZORUNDASINIZ
         
     ChatGPT için sadece yazmaya hazır hale getirmeniz yeterli
+    
+    
+        WhatsApp ve ChatGPT kurulumundan sonra Enter\'a basınız ve programı aşağı alıp tarayıcıya geçiniz.
         
 -EN-
     Go to the file location of the program and take a screenshot of the necessary buttons.
@@ -30,11 +33,12 @@ print("""
         YOU MUST switch to DARK THEME
         
     For ChatGPT, you just have to get it ready to write
+        
+        
+        After setting WhatsApp and ChatGPT, press Enter and minimize the program window and switch to the browser.
 """)
 
-input("\n\n\tWhatsApp ve ChatGPT kurulumundan sonra Enter\'a basınız ve programı aşağı alıp tarayıcıya geçiniz."
-      "\n\tAfter setting WhatsApp and ChatGPT, press Enter and minimize the program window and switch to the browser.")
-
+input()
 sleep(3)
 
 while True:
@@ -46,6 +50,7 @@ while True:
     wp_bot.nav_cgpt_tab()
     wp_bot.solve_message()
     #sekme değiştirmeliyiz / need to change tab to whatsapp
+    wp_bot.take_result()
     wp_bot.nav_input_box()
     wp_bot.send_result()
 
