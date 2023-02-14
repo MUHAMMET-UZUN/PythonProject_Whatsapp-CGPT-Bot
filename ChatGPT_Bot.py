@@ -39,15 +39,18 @@ class ChatGPT:
         while True:
             try:
                 position = pt.locateOnScreen('cgpt_stop_generating_button.png',confidence=1)
-                print("içrde")
+                print("In progress...")
                 continue
 
             except Exception as e:
-                position = pt.locateOnScreen('whatsapp_tab_icon.png', confidence=.9)
-                pt.moveTo(position[0:2], duration=self.speed)
-                pt.moveRel(30, 0, duration=self.speed)
-                pt.doubleClick(interval=self.click_speed)
-                self.message = "Başarısız"
-                print("çıktı")
                 print('Exception (check_message_is_answered): ', e)
                 break
+
+    def nav_whatsapp_tab(self):
+        try:
+            position = pt.locateOnScreen('whatsapp_tab_icon.png', confidence=.9)
+            pt.moveTo(position[0:2], duration=self.speed)
+            pt.moveRel(30, 0, duration=self.speed)
+            pt.doubleClick(interval=self.click_speed)
+        except Exception as e:
+            print("Exception (nav_whatsapp_tab): ",e)

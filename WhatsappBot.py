@@ -57,12 +57,6 @@ class WhatsApp:
     def solve_message(self):
         try:
             if self.message != self.last_message:
-
-                position = pt.locateOnScreen('cgpt_tab_icon.png', confidence=.9)
-                pt.moveTo(position[0:2], duration=self.speed)
-                pt.moveRel(30,0, duration=self.speed)
-                pt.doubleClick(interval=self.click_speed)
-
                 bot_response = response(self.message)
                 print("You say: ", bot_response)
                 pt.typewrite(bot_response,interval=.1)
@@ -75,25 +69,30 @@ class WhatsApp:
         except Exception as e:
             print("Exception (send_message): ",e)
 
+    def nav_cgpt_tab(self):
+        try:
+            position = pt.locateOnScreen('cgpt_tab_icon.png', confidence=.9)
+            pt.moveTo(position[0:2], duration=self.speed)
+            pt.moveRel(30, 0, duration=self.speed)
+            pt.doubleClick(interval=self.click_speed)
+        except Exception as e:
+            print("Exception (nav_cgpt_tab): ",e)
+
     def send_message(self):
         try:
             if self.message != self.last_message:
 
-                #position = pt.locateOnScreen('paperclip.png', confidence=.9)
-                #pt.moveTo(position[0:2], duration=self.speed)
-                #pt.moveRel(10, -60, duration=self.speed)
-                #pt.doubleClick(interval=self.click_speed)#activate them if chatgpt is enabled
-                bot_response = response(self.message) #delete if chatgpt is enable
-                print("You say: ", self.message)
-                print("Bot response: ",bot_response)
-                #bot_response = bot_response.encode(encoding="utf-8",errors="xmlcharrefreplace")
-                #bot_response = str(bot_response)
-                #bot_response = bot_response[2:len(bot_response)-1]
+                position = pt.locateOnScreen('paperclip.png', confidence=.9)
+                pt.moveTo(position[0:2], duration=self.speed)
+                pt.moveRel(10, -60, duration=self.speed)
+                pt.doubleClick(interval=self.click_speed)
 
-                pt.typewrite(bot_response,interval=.1)#change to self.message if chatgpt is enabled
+                print("You say: ", self.message)
+
+                pt.typewrite(self.message,interval=.1)
                 pt.typewrite("\n")
 
-                #Son mesajın ayarlanması
+                #Son mesajın ayarlanması / Assign last message
                 self.last_message = self.message
             else:
                 print("No new messages...")
