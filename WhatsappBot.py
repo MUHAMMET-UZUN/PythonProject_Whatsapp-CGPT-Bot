@@ -60,6 +60,7 @@ class WhatsApp:
             if self.message != self.last_message:
                 bot_response = response(self.message)
                 print("You say: ", bot_response)
+
                 pt.typewrite(bot_response,interval=.1)
                 #pt.typewrite("\n")
 
@@ -84,10 +85,10 @@ class WhatsApp:
         try:
             if self.message != self.last_message:
 
-                position = pt.locateOnScreen('paperclip.png', confidence=.9)
-                pt.moveTo(position[0:2], duration=self.speed)
-                pt.moveRel(10, -60, duration=self.speed)
-                pt.doubleClick(interval=self.click_speed)
+                #position = pt.locateOnScreen('paperclip.png', confidence=.9)
+                #pt.moveTo(position[0:2], duration=self.speed)
+                #pt.moveRel(10, -60, duration=self.speed)
+                #pt.doubleClick(interval=self.click_speed)
 
                 print("You say: ", self.message)
 

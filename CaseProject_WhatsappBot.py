@@ -1,10 +1,5 @@
-import requests
-from bs4 import BeautifulSoup
-#!/usr/bin/env python
-# -*- coding: latin-1 -*-
 from WhatsappBot import WhatsApp
 from time import sleep
-
 
 wp_bot = WhatsApp(speed=.1,click_speed=.4)
 
@@ -51,9 +46,10 @@ while True:
     wp_bot.solve_message()
     #sekme değiştirmeliyiz / need to change tab to whatsapp
     wp_bot.take_result()
+    wp_bot.nav_x()
     wp_bot.nav_input_box()
     wp_bot.send_result()
 
-    sleep(10)
+    sleep(5)
 
 

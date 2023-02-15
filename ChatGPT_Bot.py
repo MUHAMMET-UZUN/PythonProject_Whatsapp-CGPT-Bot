@@ -2,7 +2,7 @@ import pyautogui as pt
 import pyperclip as pc
 from pynput.mouse import Controller, Button
 from time import sleep
-from selenium.webdriver.common.by import By
+
 
 mouse = Controller()
 
@@ -33,7 +33,7 @@ class ChatGPT:
     def solve_message(self,input_message):
         try:
             print("You say: ", input_message)
-            pt.typewrite(input_message+" sadece bir paragrafta yaz",interval=0)
+            pt.typewrite(input_message,interval=0)
             pt.typewrite("\n")
             sleep(1)
             #Son mesajın ayarlanması / Assign last message
